@@ -1,6 +1,8 @@
-﻿namespace internet
+﻿using System.Globalization;
+
+namespace internet
 {
-    internal class Program
+    internal partial class Program
     {
         static void Main(string[] args)
         {
