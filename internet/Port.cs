@@ -25,7 +25,12 @@
             {
                 IsOpen = false;
             }
-            public bool 
+            public void SetService(Service service)
+            {
+                if (service == null) throw new NullReferenceException();
+                RunningService = service;
+            }
+
             public Port(int portNumber, string protocol, bool isOpen, Service runningService)
             {
                 PortNumber = portNumber;

@@ -5,7 +5,7 @@
         public abstract class NetworkDevice
         {
             public string IPAddress { get; private set; }
-            public readonly string MacAddress;
+            private readonly string MacAddress;
             public string HostName { get; private set; }
             public OS os { get; private set; }
             public List<Port> Ports { get; private set; }
@@ -14,17 +14,17 @@
             public void ChangeIpAdress(string Ip)
             {
                 if (Ip != null) IPAddress = Ip;
-                // add exeptions (throw one, if == null)
+                else throw new NullReferenceException();
             }
             public void AddPort(Port port)
             {
-                if (port == null) return;
-                else if (port.GetPortNumber() == 0) return; // add exeptions
+                if (port == null) throw new NullReferenceException();
+                else if (port.GetPortNumber() <= 0) throw new PortNumberException("Port Number Cant Be 0 Or Below Zero");
                 Ports.Add(port);
             }
             public void RemovePort(Port port)
             {
-                if (!Ports.Contains(port)) return; // exeption throw
+                if (!Ports.Contains(port)) throw new NullReferenceException("Cant Find The Port.");
                 Ports.Remove(port);
             }
             public string GetMacAdd()
