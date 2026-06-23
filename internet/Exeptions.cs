@@ -15,4 +15,9 @@ namespace internet
         public PortNumberException(string message) : base(message) { }
 
     }
+    public class DeviceException : Exception
+    {
+        public DeviceException() : base("Device Was Not Found.") { }
+        public DeviceException(string message) : base(message) { }
+    }
 }

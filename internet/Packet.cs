@@ -20,8 +20,7 @@
             }
             public void SetDestPort(int portnum)
             {
-                if (portnum == null) throw new NullReferenceException();
-                else if (portnum == 0) throw new PortNumberException("Cant Access Port At Number 0");
+                if (portnum == 0) throw new PortNumberException("Cant Access Port At Number 0");
                 DestinationPort = portnum;
             }
             public void SetData(string data)
